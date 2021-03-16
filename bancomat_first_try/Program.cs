@@ -21,6 +21,7 @@ namespace bancomat_first_try
             sold = sold + sumaDepusa;
             Console.WriteLine("Suma a fost depusa cu succesuri!");
             Console.WriteLine($"Soldul dvs curent este: {sold}");
+            Console.WriteLine("Mai doriti sa depuneti? DA / NU");
             return sold;
         }
 
@@ -92,52 +93,68 @@ namespace bancomat_first_try
                     //StreamReader file = new StreamReader($"cont_{readIban}.txt");
                     //creare cont
                 }
-                else
+                else 
                 {
+                    Console.WriteLine("Va multumim! La revedere!");
                     Environment.Exit(0);
 
                 }
             }
             if (readIban != iban)
             {
-                Console.WriteLine("ibanul nu este valid");
+                Console.WriteLine("Ibanul nu este valid!");
                 return;
             }
-            Console.WriteLine("introdu parola:");
+            Console.WriteLine("Introdu parola:");
             string passw = Console.ReadLine();
             if (passw != pass)
             {
-                Console.WriteLine("parola nu e buna");
+                Console.WriteLine("Parola incorecta! La revedere!");
+                Environment.Exit(0);
                 return;
             }
             PrintMenu();
 
             Console.WriteLine("Introdu optiunea:");
+            
             int optiune = int.Parse(Console.ReadLine());
 
-            while (optiune != 0)
-            {
-                switch (optiune)
+                while (optiune != 0)
                 {
-                    case 1:
-                        sold = AddToSold(sold);
-                        break;
-                    case 2:
-                        sold = Withdraw(sold);
-                        break;
-                   // case 3:
 
-                      //  break;
-                    default:
-                        Console.WriteLine("Optiune invalida!");
+                    switch (optiune)
+                    {
+                        //case 0:
+                           
+                           // break;
+                        case 1:
+                            sold = AddToSold(sold);
+                        string raspunsaddsold = Console.ReadLine();
+                        if ((raspunsaddsold == "DA") || (raspunsaddsold == "da"))
+                        {
+                            AddToSold(sold);
+                        }
+                        else
+                        {
+                            Environment.Exit(0);
+                        }
                         break;
+                        case 2:
+                            sold = Withdraw(sold);
+                            break;
+                        case 3:
+                            Console.WriteLine("Adaugarea Ibanului este in lucru momentan. Ne cerem scuze pentru acest inconvenient!");
+                            break;
+                        default:
+                            Console.WriteLine("Optiune invalida!");
+                            break;
 
+                    }
                 }
-
                 PrintMenu();
                 Console.WriteLine("Introdu optiunea:");
                 optiune = int.Parse(Console.ReadLine());
-            }
+            
         }
     }
 }
