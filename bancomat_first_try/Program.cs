@@ -7,11 +7,12 @@ namespace bancomat_first_try
     {
         static void PrintMenu()
         {
-            Console.WriteLine("-----------");
+            Console.WriteLine("--------------");
             Console.WriteLine("1. Depunere");
             Console.WriteLine("2. Retragere");
+            Console.WriteLine("3. Creare cont");
             Console.WriteLine("0. Exit");
-            Console.WriteLine("-----------");
+            Console.WriteLine("--------------");
         }
         static double AddToSold(double sold)
         {
@@ -38,11 +39,18 @@ namespace bancomat_first_try
             return sold;
         }
 
+
+             /* public static StreamWriter CreateText(string newIban="")
+                {
+                    Console.WriteLine("Indroduceti Ibanul dvs.:");
+                    newIban = Console.ReadLine();
+                }*/
         static void Main(string[] args)
         {
             string iban = "";
             string pass = "";
             double sold = 0;
+            PrintMenu();
 
             Console.WriteLine("Introdu iban:");
             string readIban = Console.ReadLine();
@@ -103,6 +111,9 @@ namespace bancomat_first_try
                     case 2:
                         sold = Withdraw(sold);
                         break;
+                   // case 3:
+
+                      //  break;
                     default:
                         Console.WriteLine("Optiune invalida!");
                         break;
