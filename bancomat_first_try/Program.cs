@@ -40,7 +40,7 @@ namespace bancomat_first_try
         }
 
 
-             /* public static StreamWriter CreateText(string newIban="")
+/*              public static StreamWriter CreateText(string newIban)
                 {
                     Console.WriteLine("Indroduceti Ibanul dvs.:");
                     newIban = Console.ReadLine();
@@ -50,7 +50,8 @@ namespace bancomat_first_try
             string iban = "";
             string pass = "";
             double sold = 0;
-            PrintMenu();
+            string raspuns = "";
+
 
             Console.WriteLine("Introdu iban:");
             string readIban = Console.ReadLine();
@@ -81,9 +82,22 @@ namespace bancomat_first_try
             else
             {
                 Console.WriteLine("Contul nu exista in baza noastra de date!");
-                Environment.Exit(0);
-            }
+                Console.WriteLine("Doriti sa il creati?");
+                Console.WriteLine("Variante raspuns: DA / NU");
+                raspuns = Console.ReadLine();
+                if (raspuns == "DA"|| raspuns=="da")
+                {
+                    Console.WriteLine("Indtroduceti Ibanul dvs.");
+                    readIban = Console.ReadLine();
+                    //StreamReader file = new StreamReader($"cont_{readIban}.txt");
+                    //creare cont
+                }
+                else
+                {
+                    Environment.Exit(0);
 
+                }
+            }
             if (readIban != iban)
             {
                 Console.WriteLine("ibanul nu este valid");
