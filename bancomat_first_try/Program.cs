@@ -112,7 +112,6 @@ namespace bancomat_first_try
                 PrintMenu();
                 Console.WriteLine("Introdu optiunea:");
                 optiune = int.Parse(Console.ReadLine());
-
             }
         }
     }
